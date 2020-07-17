@@ -24,4 +24,13 @@ Clone this Repository
 
 * **examples.php** some code fragments using all the *lib* helper funtions
 
+
+# EVOLUTION
+Are you a dev rockstar? Add these features:
+* **Timezone**: Add timezone management in user registration and show the dates based on user selected timezone.
+* **Multilanguage**: Remove hard-coded labels and use multilanguage keys instead. Choose the D-board language by using the browser language if you have the translations or use ENG as fallback.
+* **Pagination**: Paginate topics and messages using traditional pagination controls or be a rockstar and implement the continuos scoll!
+* **Styles**: Use an advanced editor for messages and display some basic styles (bold, italic, lists, bullets) into messages. If you want to be a rockstar add the support for images and tables.
+* **My profile**: Create a new My profile page, let the user to change the password and the timezone. Are you the best? Add the user avatar management.
+
 # ENJOY
