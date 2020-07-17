@@ -10,18 +10,18 @@ Clone this Repository
 
 
 ## Project structure
-*docs*: here you can find the scenarios 
-*db*: here you can find the DB structure and initial data
-*lib*: some useful PHP functions for your project (helper funtions to manage users, topics and messages)
-*css*: css files, global style.css and a css file for each page
-*js*: js files, global script.js and a js file for each page
-*README.md* this file
-*LICENSE* unused
-*index.php* the main platform page, here you should show the sign-in/registration link for guests and the topic list for logged in users
-*signin.php* the sigin dedicated page
-*register.php* the user registration dedicated page
-*topic.php* the single topic detail page
+* **docs**: here you can find the scenarios 
+* **db**: here you can find the DB structure and initial data
+* **lib**: some useful PHP functions for your project (helper funtions to manage users, topics and messages)
+* **css**: css files, global style.css and a css file for each page
+* **js**: js files, global script.js and a js file for each page
+* **README.md** this file
+* **LICENSE** unused
+* **index.php** the main platform page, here you should show the sign-in/registration link for guests and the topic list for logged in users
+* **signin.php** the sigin dedicated page
+* **register.php** the user registration dedicated page
+* **topic.php** the single topic detail page
 
-*examples.php* some code fragments using all the *lib* helper funtions
+* **examples.php** some code fragments using all the *lib* helper funtions
 
 # ENJOY
