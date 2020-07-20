@@ -2,7 +2,7 @@
 define("MYSQL_HOST","127.0.0.1");
 define("MYSQL_USER","docebo");
 define("MYSQL_PASS","docebo");
-define("MYSQL_DBNAME","docebo");
+define("MYSQL_DBNAME","dboard");
 
 global $dblink;
 
