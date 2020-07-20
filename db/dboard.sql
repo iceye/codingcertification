@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS dboard;
+
 ## STRUCTURE ###############################################
 CREATE TABLE user(
     userId INT(11) not null auto_increment,
