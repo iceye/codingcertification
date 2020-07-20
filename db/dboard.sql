@@ -1,4 +1,4 @@
-## STRUCTURE ################################################
+## STRUCTURE ###############################################
 CREATE TABLE user(
     userId INT(11) not null auto_increment,
     username varchar(255) default null,
