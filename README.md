@@ -2,12 +2,14 @@
 Docebo Coding Certification repository, Mockup https://docebo.invisionapp.com/share/B6Y44YTKMH8
 
 ## How to start the project
-@Carmine qui avrei bisogno che indicassi la modalita' che gli hai spiegato con cui gli fai utilizzare apache, mysql e php (non so se XAMP, Docker o che altro)
+Install Git (you should know how thanks to Niccolo')
 
-Then install Git (you should know how thanks to Niccolo')
+Use Carmine's Env (Apache, PHP, MySQL with MAMP/XAMPP) or equivalent
 
-Clone this Repository
-
+Clone this Repository with GUI or by running 
+```
+git clone https://github.com/iceye/codingcertification.git
+```
 
 ## Project structure
 * **docs**: here you can find the scenarios 
