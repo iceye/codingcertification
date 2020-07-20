@@ -22,6 +22,7 @@ include("lib/functions.php");
   <!-- ADD HERE YOUR HTML CODE -->    
   <h1>HOME PAGE - HELLO WORLD</h1>
   <a href="signin.php"> SIGN-IN FOR GROUP 2 </a> 
+  <a href="register.php"> REGISTER </a> 
   
   <!-- JS SCRIPT INCLUSION -->
   <script
