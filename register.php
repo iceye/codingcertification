@@ -58,30 +58,28 @@ if (isset($_POST['reg_user'])) {
 
 <body>
   <!-- ADD HERE YOUR HTML CODE --> 
-  <div class="header">   
-    <h1>REGISTER - HELLO WORLD</h1>
-  </div>
   <form method="post" action="register.php">
-  	<?php include('errors.php'); ?>
-  	<div class="input-group">
-  	  <label>Username</label>
-  	  <input type="text" name="username" value="<?php echo $username; ?>">
-  	</div>
-  	<div class="input-group">
-  	  <label>Password</label>
-  	  <input type="password" name="password_1">
-  	</div>
-  	<div class="input-group">
-  	  <label>Confirm password</label>
-  	  <input type="password" name="password_2">
-  	</div>
-  	<div class="input-group">
-  	  <button type="submit" class="btn" name="reg_user">Register</button>
-  	</div>
-  	<p>
-  		Already a member? <a href="login.php">Sign in</a>
-  	</p>
-  </form>
+    <h1>Sign Up</h1>
+    <?php include('errors.php'); ?>
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="username" value="<?php echo $username; ?>">
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password_1">
+      </div>
+      <div class="input-group">
+        <label>Repeat password</label>
+        <input type="password" name="password_2">
+      </div>
+      <div class="input-group">
+        <button type="submit" class="btn" name="reg_user">Sign up</button>
+      </div>
+      <p>
+        Already registered? <a href="signin.php">Sign in</a>
+      </p>
+    </form>
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
