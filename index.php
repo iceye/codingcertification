@@ -1,8 +1,24 @@
 <?php
 include("lib/functions.php");
+session_start();
 
 /*BUSINESS LOGIC CODE*/
 
+
+/*if($_SESSION[authenticated]= true){
+  ?>
+    <script>var x = document.getElementById("signIn");
+      x.style.display = "none";
+    </script>  
+  <?php
+}else{
+  ?>
+    <script>var x = document.getElementById("welcome");
+      x.style.display = "none";
+    </script>  
+  <?php
+  
+}*/
 
 
 
@@ -21,8 +37,22 @@ include("lib/functions.php");
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
   <h1>HOME PAGE - HELLO WORLD</h1>
-  <a href="signin.php"> SIGN-IN </a> 
-  
+  <?php 
+  if($_SESSION[authenticated] == true){
+  ?>
+       <div id="welcome">
+          <p>Welcome <?php echo $_SESSION[username];?> </p>
+      </div> 
+  <?php
+  }
+  else{
+  ?>
+      <div id="signIn">
+          <a href="signin.php"> SIGN-IN </a> 
+        </div>
+  <?php    
+  }
+  ?>
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
