@@ -7,7 +7,7 @@ AND I can see the Coding Certification website based on my culture and timezone
 
 **Scenarios**:   
 
-#### I see the sign in link  
+#### I see the sign in link - DONE 
 GIVEN I'm a guest user  
 AND I have a username and password  
 WHEN I visit _D-BOARD URL_ /index.php  
@@ -15,7 +15,7 @@ THEN I see a _SIGNIN_ link
 AND I see _REGISTRATION_ link if REGISTRATION project is completed  
 
 
-##### I fill the sign fields  
+##### I fill the sign fields  DONE
 GIVEN I'm a guest user  
 AND I visit _D-BOARD URL_ /index.php  
 AND I see a _SIGNIN_ link  
@@ -24,6 +24,8 @@ THEN I'm redirected to the _SIGNIN_ page /signin.php
 AND I see the _SIGNIN TITLE_ label  
 AND I see the _USERNAME_ field  
 AND I see the _PASSWORD_ field  
+
+
 (_OPTIONAL_)  
 AND I see _SIGNIN BUTTON_ disabled   
 AND  
@@ -31,7 +33,7 @@ WHEN I fill _USERNAME_ and _PASSWORD_ fields with some values
 THEN I see the _SIGNIN BUTTON_ enabled  
 (_OPTIONAL_)  
 
-##### I sign in link  
+##### I sign in link IN PROGRESS
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  
@@ -43,7 +45,7 @@ WHEN I click the _SIGNIN BUTTON_
 THEN I'm redirected to /index.php  
 AND I see 'Hi {username}' label on the _TOP RIGHT_ corner  
 
-##### I sign fail  
+##### I sign fail  IN PROGRESS
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  
