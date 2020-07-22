@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 90%;
+    font-family: 'Open Sans', sans-serif;
+    background: #EEEEEE;
+    display: flex;
+  }
+
+  .header {
+    width: 50%;
+    margin: 50px auto 0px;
+    color: #333333;
+    text-align: left;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+  }
+
+  form, .content {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .input-group {
+    margin: 10px 0px 0px 0px;
+  }
+  .input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+  }
+  .input-group input {
+    height: 30px;
+    width: 50%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #E6E8ED;
+  }
+  .btn {
+    padding: 10px;
+    height: 42px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #494949;
+    background: #9CFFB5;
+    border: none;
+    border-radius: 7px;
+  }
