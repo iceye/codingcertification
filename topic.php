@@ -6,29 +6,19 @@ error_reporting(E_ALL);
 /*BUSINESS LOGIC CODE*/
 
 $query = "SELECT * FROM topic";
-echo "<b> <center>Database Output</center> </b> <br> <br>";
 
-echo '<center><table border="0" cellspacing="2" cellpadding="2"> 
-      <tr> 
-          <td> <font face="Arial">TopicId</font> </td> 
-          <td> <font face="Arial">title</font> </td> 
-          <td> <font face="Arial">created_at</font> </td> 
-          <td> <font face="Arial">UserId</font> </td> 
-      </tr>';
+echo '<center><table id="table_topics">';
 
 if ($result = mysqli_query($dblink, $query)) {
 
     while ($row = $result->fetch_assoc()) {
-        $field1name = $row["topicId"];
-        $field2name = $row["title"];
+        $field1name = $row["title"];
+        $field2name = $row["userId"];
         $field3name = $row["created_at"];
-        $field4name = $row["userId"];
- 
+
+
         echo '<tr>
-                <td>'.$field1name.'</td>
-                <td>'.$field2name.'</td>
-                <td>'.$field3name.'</td>
-                <td>'.$field4name.'</td>
+                <td>Title: '.$field1name.'</br>Created by: '.$field2name.' Created at: '.$field3name.'</td>
              </tr>';
     }
 /*freeresultset*/
