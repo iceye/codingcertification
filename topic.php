@@ -1,9 +1,30 @@
 <?php
 include("lib/functions.php");
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /*BUSINESS LOGIC CODE*/
 
+$query = "SELECT * FROM topic";
+echo "<b> <center>Database Output</center> </b> <br> <br>";
 
+
+if ($result = mysqli_query($dblink, $query)) {
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["topicId"];
+        $field2name = $row["title"];
+        $field3name = $row["created_at"];
+        $field4name = $row["userId"];
+ 
+        echo $field1name.'<br />';
+        echo $field2name.'<br />';
+        echo $field3name.'<br />';
+        echo $field4name.'<br />';
+    }
+ 
+/*freeresultset*/
+$result->free();
+}
 
 
 /*BUSINESS LOGIC CODE END*/
