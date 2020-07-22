@@ -44,7 +44,7 @@ else {
 
   <!-- ADD HERE YOUR HTML CODE --> 
 
-  <form method="post" action="register.php">
+  <form method="post" action="register.php" id="register_form">
     <h1>Sign Up</h1>
     <?php include('errors.php'); ?>
 
