@@ -1,0 +1,82 @@
+.allert {
+    min-width: 250px;
+    border-radius: 4px;
+    padding: 20px 20px;
+    color: #fff;
+    font-size: 18px;
+    font-family: "Open Sans";
+    cursor: pointer;
+    background-color: #fff;
+    color: #454857;
+    border: 1px solid #eaeaea;
+    position: absolute;
+    box-shadow: 0 5px 28px 0 rgba(227, 227, 227, 1);
+    z-index: 9999;
+  }
+  
+  .allert-warning,
+  .allert-error,
+  .allert-info,
+  .allert-success {
+    color: #fff;
+    border: none;
+  }
+  
+  /* warning conf */
+  .allert-warning {
+    background-color: #ffcd36;
+  }
+  
+  .allert-warning::before {
+    content: "⚠️";
+    padding-right: 10px;
+  }
+  
+  /* error conf */
+  .allert-error {
+    background-color: #ff2131;
+  }
+  
+    .allert-error::before {
+    content: "❌";
+    padding-right: 10px;
+  }
+  
+  /* info conf */
+  
+  .allert-info {
+    background-color: #1fbfff;
+  }
+  
+  .allert-info::before {
+    content: "ℹ️";
+    padding-right: 10px;
+  }
+  
+  /* success conf */
+  
+  .allert-success {
+    background-color: #49cb61;
+  }
+  
+  .allert-success::before {
+    content: "✔️";
+    padding-right: 10px;
+  }
+  
+   /* popup placement position conf */
+  
+  .allert span {
+    margin-right: 10px;
+  }
+  
+  .allert-default-position {
+    top: 70px;
+    right: 100px;
+  }
+
+  .allert-fadeout {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 1s, opacity 0.3s linear;
+  }

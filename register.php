@@ -6,9 +6,12 @@ include("lib/functions.php");
   $username = $_POST['username'];
   $password_1 = $_POST['password_1'];
   $password_2 = $_POST['password_2'];
+  $allertText = null;
+  $allertType = null;
 
 if ($password_1 != $password_2) {
-    echo "The passwords typed don't match";
+    $allertText="password doesn't match";
+    $allertType="warning";
   }
 
 
@@ -17,9 +20,12 @@ else {
     if ($username != "") {
         $checkuser = saveNewUser($username, $password);
         if ($checkuser == "0") {
-            echo "The username typed already exists";
-        }
-        else {echo "User created";}
+          $allertText="The username typed already exists";
+          $allertType="info";
+                               }
+        else {$allertText="User created";
+              $allertType="success";
+             }
     }  
 }
 
@@ -33,8 +39,9 @@ else {
   <title>D-Board</title>
   <meta name="description" content="The D-Board project">
   <!-- CSS INCLUSION -->    
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/register.css">
+  <link rel="stylesheet" href="css/allert.css">
 </head>
 
 <body>
@@ -78,8 +85,20 @@ else {
   <script
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"
   crossorigin="anonymous"></script>     
-  <script src="js/scripts.js"></script>
+  <script src="js/script.js"></script>
   <script src="js/register.js"></script>
+  <?php
+    if ($allertText!==null && $allertType !==null){
+      ?>
+  <script>
+    allert("<?= $allertText ?>", {
+              type: "<?= $allertType ?>",
+            });
+  </script>
+  <?php
+    }
+  ?>
+
 </body>
 </html>
 
