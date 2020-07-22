@@ -20,9 +20,26 @@ include("lib/functions.php");
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
-  <h1>HOME PAGE - HELLO WORLD</h1>
-  <a href="register.php">register</a>
-  
+  <p>
+    <a href="register.php">register</a>
+  </p>
+  <div class="header">
+    <h1>Discussions</h1>
+
+  <form method="post" action="topic.php" id="topic_creation">
+  <h3>Create a discussion</h3>
+    <?php include('errors.php'); ?>
+
+      <div class="input-group">
+        <label>Title</label>
+        <input type="text" name="topicTitle" id="topicTitle" required>
+      </div>
+      <div class="input-group">
+        <button type="submit" class="btn" name="new_topic">Add Discussion</button>
+      </div>
+    </form>
+    </div>
+
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
