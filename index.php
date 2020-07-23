@@ -4,6 +4,10 @@ include("lib/functions.php");
 /*BUSINESS LOGIC CODE*/
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
 /*BUSINESS LOGIC CODE END*/
@@ -20,9 +24,29 @@ include("lib/functions.php");
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
+<<<<<<< Updated upstream
   <h1>HOME PAGE - HELLO WORLD</h1>
 
   
+=======
+ 
+  <?php 
+  if($_SESSION[authenticated] == true){
+  ?>
+       <div id="welcome">
+          <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
+      </div> 
+  <?php
+  }
+  else{
+  ?>
+      <div id="signIn">
+          <a href="signin.php"> SIGN-IN </a> 
+        </div>
+  <?php    
+  }
+  ?>
+>>>>>>> Stashed changes
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
