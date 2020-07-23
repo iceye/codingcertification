@@ -3,28 +3,30 @@ include("lib/functions.php");
 
 /*BUSINESS LOGIC CODE*/
 
-$query = "SELECT * FROM topic";
-$title = $_POST['topicTitle'];
-$userId = '1';
-$allertText = null;
-$allertType = null;
-$var = getTopics();
-/*Creation of New Topics*/
   $title = $_POST['topicTitle'];
   $userId = '1';
-  
-if ($title != "") {
-    $checktopic = saveNewTopic($title, $userId);
-      if ($checktopic == "-1") {
-        $allertText="ERROR";
-        $allertType="error";
-                             }
-      else {$allertText="Topic created";
-            $allertType="success";
-           }
-  }  
+  $allertText = null;
+  $allertType = null;
 
-  /*BUSINESS LOGIC CODE END*/
+  /* Query to get all topics from getTopics() function */
+  $arrayTopics = getTopics();
+
+  /*Creation of New Topics*/
+    $title = $_POST['topicTitle'];
+    $userId = '1';
+    
+  if ($title != "") {
+      $checktopic = saveNewTopic($title, $userId);
+        if ($checktopic == "-1") {
+          $allertText="ERROR";
+          $allertType="error";
+                              }
+        else {$allertText="Topic created";
+              $allertType="success";
+            }
+    }  
+
+/*BUSINESS LOGIC CODE END*/
 
 ?><!doctype html>
 <html lang="en">
@@ -61,16 +63,21 @@ if ($title != "") {
     </div>
 
 
-<?
-echo '<table>';
-foreach ($var['data'] as $item) {
-    echo '<tr>
-    <td>Title: '.$item['title'].'</br>Created by: '.$item['userId'].' Created at: '.$item['userId'].'</td>
- </tr>';
+    <?php
+      echo '<table>';
+
+        foreach ($arrayTopics['data'] as $item) {
+          $idFromArray = $item['userId'];
+          $arrayUserFromId = getUserById($idFromArray);
+
+         echo '<tr>
+         <td>Title: '.$item['title'].'</br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+         </tr>';
 
 }
 echo '</table>';
 ?>
+
 <!-- JS SCRIPT INCLUSION -->
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
