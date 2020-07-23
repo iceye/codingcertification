@@ -1,20 +1,26 @@
 <?php
 include("lib/functions.php");
 /*BUSINESS LOGIC CODE*/
-$query = "SELECT * FROM topic";
-$title = $_POST['topicTitle'];
-$userId = '1';
-  if ($title != "") {
-      $checktopic = saveNewTopic($title, $userId);
-      if ($checktopic == "-1") {
-        $allertText="ERROREEEEEE";
-        $allertType="info";
-                             }
-      else {$allertText="Topic created";
-            $allertType="success";
-           }
-  }  
+
+  /*Query to extract Topics*/
+  $query = "SELECT * FROM topic";
+
+  /*Creation of New Topics*/
+  $title = $_POST['topicTitle'];
+  $userId = '1';
+    if ($title != "") {
+        $checktopic = saveNewTopic($title, $userId);
+        if ($checktopic == "-1") {
+          $allertText="ERROREEEEEE";
+          $allertType="info";
+                              }
+        else {$allertText="Topic created";
+              $allertType="success";
+            }
+    }  
+
 /*BUSINESS LOGIC CODE END*/
+
 ?><!doctype html>
 <html lang="en">
 <head>
