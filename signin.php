@@ -74,7 +74,11 @@ if ( (isset($_POST[password]) && (isset($_POST[username])) && ($_POST[password] 
           <label for="password" class= "label">Password</label>
           <input class="password" type="password" name="password"/>
           <button type="submit">Sign In</button>
-          <h3 class="message">Aren't you registered? <a href="register.php">Sign Up</a></h3>
+            <div class="message"><p><br/>
+          <br/>
+          <br/>
+             Aren't you registered? <a href="register.php">Sign up</a>
+          </p></div>
         </form> 
       </div>  
 </div>
