@@ -1,13 +1,9 @@
 <?php
 include("lib/functions.php");
+session_start();
 
 /*BUSINESS LOGIC CODE*/
 
-
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 
 /*BUSINESS LOGIC CODE END*/
@@ -24,11 +20,6 @@ include("lib/functions.php");
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
-<<<<<<< Updated upstream
-  <h1>HOME PAGE - HELLO WORLD</h1>
-
-  
-=======
  
   <?php 
   if($_SESSION[authenticated] == true){
@@ -46,7 +37,6 @@ include("lib/functions.php");
   <?php    
   }
   ?>
->>>>>>> Stashed changes
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
