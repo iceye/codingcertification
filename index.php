@@ -1,11 +1,19 @@
 <?php
 include("lib/functions.php");
-
 /*BUSINESS LOGIC CODE*/
-
-
 $query = "SELECT * FROM topic";
-
+$title = $_POST['topicTitle'];
+$userId = '1';
+  if ($title != "") {
+      $checktopic = saveNewTopic($title, $userId);
+      if ($checktopic == "-1") {
+        $allertText="ERROREEEEEE";
+        $allertType="info";
+                             }
+      else {$allertText="Topic created";
+            $allertType="success";
+           }
+  }  
 /*BUSINESS LOGIC CODE END*/
 ?><!doctype html>
 <html lang="en">
@@ -17,7 +25,6 @@ $query = "SELECT * FROM topic";
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
-
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
   <p>
@@ -25,11 +32,9 @@ $query = "SELECT * FROM topic";
   </p>
   <div class="header">
     <h1>Discussions</h1>
-
-  <form method="post" action="topic.php" id="topic_creation">
+  <form method="post" action="index.php" id="topic_creation">
   <h3>Create a discussion</h3>
     <?php include('errors.php'); ?>
-
       <div class="input-group">
         <label>Title</label>
         <input type="text" name="topicTitle" id="topicTitle" required>
@@ -39,19 +44,13 @@ $query = "SELECT * FROM topic";
       </div>
     </form>
     </div>
-
     <?
-
 echo '<table id="table_topics">';
-
 if ($result = mysqli_query($dblink, $query)) {
-
     while ($row = $result->fetch_assoc()) {
         $field1name = $row["title"];
         $field2name = $row["userId"];
         $field3name = $row["created_at"];
-
-
         echo '<tr>
                 <td>Title: '.$field1name.'</br>Created by: '.$field2name.' Created at: '.$field3name.'</td>
              </tr>';
@@ -61,7 +60,6 @@ $result->free();
 }
 echo "</table>";
 ?>
-
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -70,7 +68,7 @@ echo "</table>";
   <script
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"
   crossorigin="anonymous"></script>     
-  <script src="js/scripts.js"></script>
+  <script src="js/script.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>
