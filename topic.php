@@ -2,7 +2,6 @@
 include("lib/functions.php");
 
 /*BUSINESS LOGIC CODE*/
-/* BUSINESS LOGIC CODE */
 //Get Topic Information from Header
 
 $topic= $_GET['topicID'];
@@ -17,15 +16,24 @@ $topicarray=getTopicById($topic);
 
 $title = $topicarray[title];
 $owner = $topicarray[userId];
-//TODO: get username 
 $user = getUserById($owner);
-$username = $user[username];
-$created = $topicarray[created_at];
+$ownerName = $user[username];
+$createdDate = $topicarray[created_at];
 
- // echo "$title";
-  //echo "$owner";
-  //echo "$created";
-  echo "$username";
+//Get messages  for topic  QUESTION Pulling data from this array
+  $pageSize = 10;
+  // TODO convert 'last' into a page number (10)
+  $pageNumber = 2; 
+  //$topicMessages = getMessagesByTopicIdPaginated($topic, $pageSize ,$pageNumber); 
+  $allMessagesForTopic = getMessagesByTopicId($topic);
+  //print_r ($allMessagesForTopic);
+  print_r ($allMessagesForTopic);
+  //print_r($topicMessages); 
+  echo count($allMessagesForTopic[0]);
+  
+
+  //TODO Order messages by created date
+
 
 
 
@@ -40,6 +48,14 @@ $created = $topicarray[created_at];
   <!-- CSS INCLUSION -->    
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/topic.css">
+  <style>
+   div {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -47,6 +63,26 @@ $created = $topicarray[created_at];
   <h1>TOPIC - HELLO WORLD</h1>
   
   <a href="index.php">Back To Discussions</a>
+
+  <div id="topic">
+    <h3> <?php echo "$title" ?></h3>
+    <p> Author <?php echo "$ownerName $createdDate" ?></p>
+  </div>
+  <div id="addMessage">
+    <h3>Add Topic to Discussion</h3>
+      <form action="/action_page.php">
+        <label for="message">Post a message:</label><br>
+        <textarea rows="5" cols="20" name="review">message field</textarea> <br>
+        <input type="submit" value="Submit">
+ <!---TODO: Make Submit button functional --->
+      </form>
+  </div>
+  <div id="message">
+    <p>Some Message Body</p>
+    <h4>Message Author</h4>
+    <h4>Message Created Date</h4>
+  </div> 
+
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"

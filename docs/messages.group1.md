@@ -7,7 +7,7 @@ SO THAT I can read all the contribuition from other users and add my own contrib
 **Scenarios**: 
 
 #### I see the topic detail page. 
-#### I see the topic detail page. In Progress To Do: Display data in desired spots
+#### I see the topic detail page. DONE
 GIVEN I visit _D-BOARD URL_. 
 AND I have the topic 'My new wonderful topic' in my _D-BOARD_ platform  
 AND I know the topic ID for 'My new wonderful topic' is 10  
