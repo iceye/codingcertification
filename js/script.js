@@ -8,9 +8,10 @@
  *    container-id: id of the alert container. Default 'body'
  */
 function allert(text, options) {
+  console.log(text,options);
     var defaultOptions = {
-      type: null, // type is  CSS class `alert-type`
-      align: "top-right",
+      type: null,
+      align: "default-position",
       duration: 2000, // duration of the notification in ms
       "container-id": "body", // id of the alert container
     };
@@ -36,7 +37,7 @@ function allert(text, options) {
         : document.getElementById(options["container-id"]);
   
     var typeMarkup = "";
-  
+
     if (options.type) {
       typeMarkup = "allert-" + options.type;
     }
@@ -44,16 +45,20 @@ function allert(text, options) {
     // Generate the HTML
     var element = document.createElement("div");
   
-    element.setAttribute(
+      element.setAttribute(
       "class",
       "allert allert-" + options.align + " " + typeMarkup
     );
+
+    console.log(element);
+    console.log(options.align);
+
     element.setAttribute("title", text);
   
     element.innerHTML = text;
   
     container.appendChild(element);
-  
+
     var close = function (element) {
       element.classList.add("allert-fadeout");
   
