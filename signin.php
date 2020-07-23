@@ -3,10 +3,8 @@ include("lib/functions.php");
 
 /*BUSINESS LOGIC CODE*/
 
-<<<<<<< Updated upstream
 
 
-=======
 session_start();  //Starting the Session
 $_SESSION[username] =""; //Setting the Session UserName variable to Null
 $_SESSION[userId] ="";  //Setting the Session UserId variable to Null
@@ -35,7 +33,7 @@ if ( (isset($_POST[password]) && (isset($_POST[username])) && ($_POST[password] 
 
 }
 
->>>>>>> Stashed changes
+
 
 /*BUSINESS LOGIC CODE END*/
 ?><!doctype html>
@@ -51,10 +49,9 @@ if ( (isset($_POST[password]) && (isset($_POST[username])) && ($_POST[password] 
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
-<<<<<<< Updated upstream
-  <h1>SIGN-IN - HELLO WORLD</h1>
+
   
-=======
+
     <?php   //using the function above loadUserByUserNameand Password- If the result from query/function are null then show error is set to true Error statement is printed 
     if($showerrormessage == true){
 
@@ -83,7 +80,6 @@ if ( (isset($_POST[password]) && (isset($_POST[username])) && ($_POST[password] 
 </div>
 
 
->>>>>>> Stashed changes
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
