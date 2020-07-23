@@ -3,7 +3,7 @@ include("lib/functions.php");
 /*BUSINESS LOGIC CODE*/
 
   /*Query to extract Topics*/
-  $query = "SELECT * FROM topic";
+  $var = getTopics();
 
   /*Creation of New Topics*/
   $title = $_POST['topicTitle'];
@@ -51,21 +51,17 @@ include("lib/functions.php");
         <button type="submit" class="btn" name="new_topic">Add Discussion</button>
     </form>
     </div>
-    <?
-echo '<table id="table_topics">';
-if ($result = mysqli_query($dblink, $query)) {
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["title"];
-        $field2name = $row["userId"];
-        $field3name = $row["created_at"];
-        echo '<tr>
-                <td>Title: '.$field1name.'</br>Created by: '.$field2name.' Created at: '.$field3name.'</td>
-             </tr>';
-    }
-/*freeresultset*/
-$result->free();
+
+
+<?
+echo '<table>';
+foreach ($var['data'] as $item) {
+    echo '<tr>
+    <td>Title: '.$item['title'].'</br>Created by: '.$item['userId'].' Created at: '.$item['userId'].'</td>
+ </tr>';
+
 }
-echo "</table>";
+echo '</table>';
 ?>
   <!-- JS SCRIPT INCLUSION -->
   <script
