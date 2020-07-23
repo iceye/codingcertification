@@ -31,7 +31,11 @@ WHEN I fill _USERNAME_ and _PASSWORD_ fields with some values
 THEN I see the _SIGNIN BUTTON_ enabled  
 (_OPTIONAL_)  
 
+<<<<<<< Updated upstream
 ##### I sign in link  
+=======
+##### I sign in link DONE
+>>>>>>> Stashed changes
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  
@@ -43,7 +47,11 @@ WHEN I click the _SIGNIN BUTTON_
 THEN I'm redirected to /index.php  
 AND I see 'Hi {username}' label on the _TOP RIGHT_ corner  
 
+<<<<<<< Updated upstream
 ##### I sign fail  
+=======
+##### I sign fail  DONE
+>>>>>>> Stashed changes
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  

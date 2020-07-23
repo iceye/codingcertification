@@ -1,0 +1,9 @@
+/* used to style the welcome User name message on Index page*/
+#welcome{ 
+    float:right;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+}
