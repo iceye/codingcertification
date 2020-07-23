@@ -8,7 +8,7 @@
     font-size: 90%;
     font-family: 'Open Sans', sans-serif;
     background: #EEEEEE;
-    display: flex;
+/*    display: flex; */
   }
 
   .header {
@@ -56,4 +56,20 @@
     background: #9CFFB5;
     border: none;
     border-radius: 7px;
+  }
+
+  table {
+    width:50%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+
+    border-radius: 10px 10px 10px 10px;
+    align-self: center;
+  }
+  td {
+    border-bottom: 1px solid #F4F4F4;
+    padding: 20px;
+    margin-top: 100px;
   }

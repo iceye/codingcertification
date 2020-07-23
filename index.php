@@ -4,7 +4,7 @@ include("lib/functions.php");
 /*BUSINESS LOGIC CODE*/
 
 
-
+$query = "SELECT * FROM topic";
 
 /*BUSINESS LOGIC CODE END*/
 ?><!doctype html>
@@ -39,6 +39,28 @@ include("lib/functions.php");
       </div>
     </form>
     </div>
+
+    <?
+
+echo '<table id="table_topics">';
+
+if ($result = mysqli_query($dblink, $query)) {
+
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["title"];
+        $field2name = $row["userId"];
+        $field3name = $row["created_at"];
+
+
+        echo '<tr>
+                <td>Title: '.$field1name.'</br>Created by: '.$field2name.' Created at: '.$field3name.'</td>
+             </tr>';
+    }
+/*freeresultset*/
+$result->free();
+}
+echo "</table>";
+?>
 
   <!-- JS SCRIPT INCLUSION -->
   <script

@@ -5,27 +5,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 /*BUSINESS LOGIC CODE*/
 
-$query = "SELECT * FROM topic";
-
-echo '<center><table id="table_topics">';
-
-if ($result = mysqli_query($dblink, $query)) {
-
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["title"];
-        $field2name = $row["userId"];
-        $field3name = $row["created_at"];
-
-
-        echo '<tr>
-                <td>Title: '.$field1name.'</br>Created by: '.$field2name.' Created at: '.$field3name.'</td>
-             </tr>';
-    }
-/*freeresultset*/
-$result->free();
-}
-echo "</table></center>";
-
 /*BUSINESS LOGIC CODE END*/
 ?><!doctype html>
 <html lang="en">
@@ -42,7 +21,7 @@ echo "</table></center>";
 
   <!-- ADD HERE YOUR HTML CODE -->    
   <h1>TOPIC - HELLO WORLD</h1>
-  
+
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
