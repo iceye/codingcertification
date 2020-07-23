@@ -32,16 +32,17 @@ $userId = '1';
   </p>
   <div class="header">
     <h1>Discussions</h1>
+  </div>
+  
   <form method="post" action="index.php" id="topic_creation">
-  <h3>Create a discussion</h3>
+
     <?php include('errors.php'); ?>
       <div class="input-group">
-        <label>Title</label>
+      <formTitle>Create a discussion</formTitle>
+      <label>Title</label>
         <input type="text" name="topicTitle" id="topicTitle" required>
       </div>
-      <div class="input-group">
         <button type="submit" class="btn" name="new_topic">Add Discussion</button>
-      </div>
     </form>
     </div>
     <?
