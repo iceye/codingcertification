@@ -17,39 +17,44 @@
     color: #333333;
     text-align: left;
     border-radius: 10px 10px 0px 0px;
-    padding: 10px;
+
   }
 
   form, .content {
-    width: 100%;
-    margin-top: 20px;
+    width: 50%;
+    margin: 20px 0px 0px 20px;
     margin-left: auto;
     margin-right: auto;
-    padding: 25px;
     background: white;
     border-radius: 10px 10px 10px 10px;
   }
 
   .input-group {
-    margin: 10px 0px 0px 0px;
+    padding: 20px;
   }
+  
+  .input-group formTitle {
+    font-size: large;
+    text-align: left;
+  }
+  
   .input-group label {
+    margin-top: 10px;
     display: block;
     text-align: left;
-    margin: 3px;
+
   }
   .input-group input {
     height: 30px;
-    width: 50%;
-    padding: 5px 10px;
+    width: 60%;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #E6E8ED;
   }
   .btn {
-    padding: 10px;
     height: 42px;
-    margin-top: 20px;
+    margin: 0px 0px 20px 20px;
+    padding: 5px;
     font-size: 15px;
     font-weight: bold;
     color: #494949;
