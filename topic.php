@@ -2,12 +2,36 @@
 include("lib/functions.php");
 
 /*BUSINESS LOGIC CODE*/
+/* BUSINESS LOGIC CODE */
+//Get Topic Information from Header
+
+$topic= $_GET['topicID'];
+$page= $_GET['page'];
+
+//echo "$topic and $page";
+//echo "\n";
+
+// Use topicID to get messages
+
+$topicarray=getTopicById($topic);
+
+$title = $topicarray[title];
+$owner = $topicarray[userId];
+//TODO: get username 
+$user = getUserById($owner);
+$username = $user[username];
+$created = $topicarray[created_at];
+
+ // echo "$title";
+  //echo "$owner";
+  //echo "$created";
+  echo "$username";
 
 
 
-
-/*BUSINESS LOGIC CODE END*/
-?><!doctype html>
+// BUSINESS LOGIC CODE END
+?>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -22,6 +46,7 @@ include("lib/functions.php");
   <!-- ADD HERE YOUR HTML CODE -->    
   <h1>TOPIC - HELLO WORLD</h1>
   
+  <a href="index.php">Back To Discussions</a>
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
