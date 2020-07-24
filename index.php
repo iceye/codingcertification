@@ -11,9 +11,16 @@ include("lib/functions.php");
   /* Query to get all topics from getTopics() function */
   $arrayTopics = getTopics();
 
+  /* Getting the amount of pages to diplay */
+  $numberOfTopics = count($arrayTopics['data']);
+  $numberOfPages = ceil($numberOfTopics/10);
+  ?><center>Number of Topics: <?print_r($numberOfTopics);?></center></br><?
+  ?><center>Number of Pages: <?print_r($numberOfPages);?></center></br><?
+
   /*Creation of New Topics*/
     $title = $_POST['topicTitle'];
     $userId = '1';
+    /* $userID to be changed with the ID of the current logged user */
     
   if ($title != "") {
       $checktopic = saveNewTopic($title, $userId);
