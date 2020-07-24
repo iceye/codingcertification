@@ -10,11 +10,10 @@ include("lib/functions.php");
 
   /* Query to get all topics from getTopics() function */
   $arrayTopics = getTopics();
+  $arrayTopicsPaginated = getTopicsPaginated(10,1);
 
-  /* Getting the amount of pages to diplay */
-  $numberOfTopics = count($arrayTopics['data']);
-  $numberOfPages = ceil($numberOfTopics/10);
-  ?><center>Number of Topics: <?print_r($numberOfTopics);?></center></br><?
+  /* Getting the amount of pages to display */
+  $numberOfPages = $arrayTopicsPaginated['totalpages'];
   ?><center>Number of Pages: <?print_r($numberOfPages);?></center></br><?
 
   /*Creation of New Topics*/
@@ -69,20 +68,51 @@ include("lib/functions.php");
     </form>
     </div>
 
-
-    <?php
+<?php
+  /* Table with paginated topics */
       echo '<table>';
+      $arrayTopicsPaginated = getTopicsPaginated(10,1);
 
-        foreach ($arrayTopics['data'] as $item) {
+      /* Getting the amount of pages to display */
+      $numberOfPages = $arrayTopicsPaginated['totalpages'];
+      ?><center>Number of Pages: <?print_r($numberOfPages);?></center></br><?
+
+        foreach ($arrayTopicsPaginated['data'] as $item) {
           $idFromArray = $item['userId'];
           $arrayUserFromId = getUserById($idFromArray);
 
          echo '<tr>
          <td>Title: '.$item['title'].'</br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
          </tr>';
+    }
+    echo '</table>';
+?>
 
-}
-echo '</table>';
+<?php
+/* Create links to pages - draft*/
+?>
+<div class="page-links">Page:
+  <?
+  for ($i = 1; $i <= $numberOfPages; $i++) {
+      echo $i.', ';
+    }
+?>
+</div>
+
+<?php
+/* Table with ALL topics */
+  echo '<table>';
+
+    foreach ($arrayTopics['data'] as $item) {
+      $idFromArray = $item['userId'];
+      $arrayUserFromId = getUserById($idFromArray);
+
+      echo '<tr>
+      <td>Title: '.$item['title'].'</br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+      </tr>';
+    }
+  
+    echo '</table>';
 ?>
 
 <!-- JS SCRIPT INCLUSION -->
