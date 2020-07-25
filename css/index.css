@@ -29,11 +29,34 @@
     border-radius: 10px 10px 10px 10px;
   }
 
-  .page-links{
-    font-size: large;
-    text-align: left;
-    width: 50%;
-    margin: 10 auto 0 auto;
+  form, .numeriDiPagina{
+    margin: 5px auto 20px auto;
+    background: transparent;
+  }
+
+  .pageBtn {
+    font-size: small;
+    font-weight: bold;
+    color: #494949;
+    background: #9CFFB5;
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .pageBtnNo {
+    font-size: small;
+    font-weight: bold;
+    color: #494949;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
   }
 
   .input-group {
@@ -60,7 +83,7 @@
   }
   .btn {
     height: 42px;
-    margin: 0px 0px 20px 20px;
+    margin: 20px 0px 5px 0px;
     padding: 5px;
     font-size: 15px;
     font-weight: bold;
@@ -85,8 +108,5 @@
     margin-top: 100px;
   }
 
-  .thisPage {
-    font-style: italic;
-    font-style: color=red;
-  }
+
 
