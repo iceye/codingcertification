@@ -63,11 +63,11 @@ include("lib/functions.php");
       </form>
     </div>
 
-<?php
-  /* Table with paginated topics */
-      echo '<table>';
 
-  /*    $arrayTopicsPaginated = getTopicsPaginated(10,$pageNumber);*/
+<!-- Table with paginated topics -->
+<?php
+
+      echo '<table>';
 
       /* Getting the amount of pages to display */
 
@@ -77,6 +77,7 @@ include("lib/functions.php");
 
       $arrayTopicsPaginated = getTopicsPaginated(10,$pageNumber);      
       $numberOfPages = $arrayTopicsPaginated['totalpages'];
+
       /* echo to check total number of pages is retrieved correctly */
       /* echo('<h2>num pages prima: '.$numberOfPages.'</h2>'); */
       
@@ -91,24 +92,22 @@ include("lib/functions.php");
     echo '</table>';
 ?>
 
-<?php
-  /* Create links to pages - draft*/
-  ?>
+<!-- Create clickable links to pages -->
   <form method="post" id="pager" class="numeriDiPagina">
-    <?
-    for ($i = 1; $i <= $numberOfPages; $i++) {
 
-      if ($i == $pageNumber) {
-        echo '<button class="pageBtn" disabled>'.$i.'</button>';
-      }
-      else{
-        echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
+  <?php
+      for ($i = 1; $i <= $numberOfPages; $i++) {
 
-      }
-  }
+        if ($i == $pageNumber) {
+          echo '<button class="pageBtn" disabled>'.$i.'</button>';
+        }
+        else{
+          echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
+        }
+    }
 
-?>
-</form>
+  ?>
+  </form>
 
 <!-- JS SCRIPT INCLUSION -->
 <script
