@@ -1,5 +1,6 @@
 <?php
 include("lib/functions.php");
+session_start();
 
 /*BUSINESS LOGIC CODE*/
 
@@ -43,9 +44,27 @@ include("lib/functions.php");
 <body>
   
   <!-- ADD HERE YOUR HTML CODE -->    
-  <p align="center">
+ 
+  <?php 
+  if($_SESSION[authenticated] == true){
+  ?>
+       <div id="welcome">
+          <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
+      </div> 
+  <?php
+  }
+  else{
+  ?>
+    <div id="signIn">
+          <a href="signin.php"> SIGN-IN </a> 
+    </div>
+    <p align="center">
     <a href="register.php">register</a>
-  </p>
+    </p>
+  <?php
+  }
+  ?>
+
   <div class="header">
     <h1>Discussions</h1>
   </div>
