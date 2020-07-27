@@ -52,8 +52,8 @@ include("lib/functions.php");
   
   <form method="post" action="index.php" id="topic_creation" class="content">
 
-    <?php include('errors.php'); ?>
-    
+      <?php /* include('errors.php'); */ ?>
+
       <div class="input-group">
       <formTitle>Create a discussion</formTitle>
       <label>Title</label>
@@ -86,8 +86,10 @@ include("lib/functions.php");
           $arrayUserFromId = getUserById($idFromArray);
 
          echo '<tr>
-         <td>Title: '.$item['title'].'</br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+         <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
          </tr>';
+
+         
     }
     echo '</table>';
 ?>
