@@ -4,28 +4,7 @@ session_start();
 
 /*BUSINESS LOGIC CODE*/
 
-  $title = $_POST['topicTitle'];
-  
-  $pageNumber = $_POST['pageNumberBtn'];
-  
-  $userId = '1';
-  $allertText = null;
-  $allertType = null;
 
-  /*Creation of New Topics*/
-    $title = $_POST['topicTitle'];
-    $userId = '1';
-    /* $userID to be changed with the ID of the current logged user */
-    if ($title != "") {
-      $checktopic = saveNewTopic($title, $userId);
-        if ($checktopic == "-1") {
-          $allertText="ERROR";
-          $allertType="error";
-                              }
-        else {$allertText="Topic created";
-              $allertType="success";
-            }
-    }  
 
 /*BUSINESS LOGIC CODE END*/
 
@@ -46,12 +25,106 @@ session_start();
   <!-- ADD HERE YOUR HTML CODE -->    
  
   <?php 
+
+$_SESSION[authenticated] = true; //It is only for test purpose; if it's true, diplay the topics, otherwise, display the register and the sign in links
+$_SESSION[username] = 'Stefano';
+
   if($_SESSION[authenticated] == true){
   ?>
        <div id="welcome">
           <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
       </div> 
   <?php
+
+$title = $_POST['topicTitle'];
+$pageNumber = $_POST['pageNumberBtn'];
+
+$userId = '1';
+$allertText = null;
+$allertType = null;
+
+/*Creation of New Topics*/
+  $title = $_POST['topicTitle'];
+  $userId = '1';
+  /* $userID to be changed with the ID of the current logged user */
+  if ($title != "") {
+    $checktopic = saveNewTopic($title, $userId);
+      if ($checktopic == "-1") {
+        $allertText="ERROR";
+        $allertType="error";
+                            }
+      else {$allertText="Topic created";
+            $allertType="success";
+          }
+  }  
+  ?>
+
+  <div class="header">
+  <h1>Discussions</h1>
+</div>
+
+<form method="post" action="index.php" id="topic_creation" class="content">
+
+    <?php /* include('errors.php'); */ ?>
+
+    <div class="input-group">
+    <formTitle>Create a discussion</formTitle>
+    <label>Title</label>
+      <input type="text" name="topicTitle" id="topicTitle" required>
+      <br><button type="submit" class="btn" name="new_topic">Add Discussion</button>
+      </div>
+    </form>
+  </div>
+
+
+<!-- Table with paginated topics -->
+<?php
+
+    echo '<table>';
+
+    /* Getting the amount of pages to display */
+
+    if ($pageNumber == 0 or Null){
+      $pageNumber = 1;
+    }
+
+    $arrayTopicsPaginated = getTopicsPaginated(10,$pageNumber);      
+    $numberOfPages = $arrayTopicsPaginated['totalpages'];
+
+    /* echo to check total number of pages is retrieved correctly */
+    /* echo('<h2>num pages prima: '.$numberOfPages.'</h2>'); */
+    
+      foreach ($arrayTopicsPaginated['data'] as $item) {
+        $idFromArray = $item['userId'];
+        $arrayUserFromId = getUserById($idFromArray);
+
+       echo '<tr>
+       <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+       </tr>';
+
+       
+  }
+  echo '</table>';
+?>
+
+<!-- Create clickable links to pages -->
+<form method="post" id="pager" class="numeriDiPagina">
+
+<?php
+    for ($i = 1; $i <= $numberOfPages; $i++) {
+
+      if ($i == $pageNumber) {
+        echo '<button class="pageBtn" disabled>'.$i.'</button>';
+      }
+      else{
+        echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
+      }
+  }
+
+?>
+</form>
+
+<?php
   }
   else{
   ?>
@@ -65,70 +138,7 @@ session_start();
   }
   ?>
 
-  <div class="header">
-    <h1>Discussions</h1>
-  </div>
-  
-  <form method="post" action="index.php" id="topic_creation" class="content">
-
-      <?php /* include('errors.php'); */ ?>
-
-      <div class="input-group">
-      <formTitle>Create a discussion</formTitle>
-      <label>Title</label>
-        <input type="text" name="topicTitle" id="topicTitle" required>
-        <br><button type="submit" class="btn" name="new_topic">Add Discussion</button>
-        </div>
-      </form>
-    </div>
-
-
-<!-- Table with paginated topics -->
-<?php
-
-      echo '<table>';
-
-      /* Getting the amount of pages to display */
-
-      if ($pageNumber == 0 or Null){
-        $pageNumber = 1;
-      }
-
-      $arrayTopicsPaginated = getTopicsPaginated(10,$pageNumber);      
-      $numberOfPages = $arrayTopicsPaginated['totalpages'];
-
-      /* echo to check total number of pages is retrieved correctly */
-      /* echo('<h2>num pages prima: '.$numberOfPages.'</h2>'); */
-      
-        foreach ($arrayTopicsPaginated['data'] as $item) {
-          $idFromArray = $item['userId'];
-          $arrayUserFromId = getUserById($idFromArray);
-
-         echo '<tr>
-         <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
-         </tr>';
-
-         
-    }
-    echo '</table>';
-?>
-
-<!-- Create clickable links to pages -->
-  <form method="post" id="pager" class="numeriDiPagina">
-
-  <?php
-      for ($i = 1; $i <= $numberOfPages; $i++) {
-
-        if ($i == $pageNumber) {
-          echo '<button class="pageBtn" disabled>'.$i.'</button>';
-        }
-        else{
-          echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
-        }
-    }
-
-  ?>
-  </form>
+ 
 
 <!-- JS SCRIPT INCLUSION -->
 <script
