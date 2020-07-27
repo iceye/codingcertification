@@ -8,6 +8,7 @@ session_start();
 
 /*BUSINESS LOGIC CODE END*/
 
+
 ?><!doctype html>
 <html lang="en">
 <head>
@@ -26,8 +27,8 @@ session_start();
  
   <?php 
 
-$_SESSION[authenticated] = true; //It is only for test purpose; if it's true, diplay the topics, otherwise, display the register and the sign in links
-$_SESSION[username] = 'Stefano';
+//$_SESSION[authenticated] = false; The authentication works onyl if the password is not encrypted
+//$_SESSION[username] = 'Stefano';
 
   if($_SESSION[authenticated] == true){
   ?>
