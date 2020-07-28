@@ -2,18 +2,17 @@
 include("lib/functions.php");
 
 /*BUSINESS LOGIC CODE*/
-
   $username = $_POST['username'];
   $password_1 = $_POST['password_1'];
   $password_2 = $_POST['password_2'];
-  $allertText = null;
-  $allertType = null;
+  $allertText = null; //Variable used to store the text to insert in alert box 
+  $allertType = null; //Variable to choose alert style -> see allert.css
+                      // Available allert options: warning/error/info/success
 
 if ($password_1 != $password_2) {
     $allertText="password doesn't match";
     $allertType="warning";
   }
-
 
 else {
     $password = md5($password_1);
@@ -28,11 +27,10 @@ else {
              }
     }  
 }
-
-
 /*BUSINESS LOGIC CODE END*/
 
-?><!doctype html>
+?>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -46,11 +44,7 @@ else {
 
 <body>
 
-
-
-
   <!-- ADD HERE YOUR HTML CODE --> 
-
   <form method="post" action="register.php" id="register_form">
     <h1>Sign Up</h1>
     <?php include('errors.php'); ?>
@@ -75,8 +69,6 @@ else {
       </p>
     </form>
 
-
-
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -87,6 +79,7 @@ else {
   crossorigin="anonymous"></script>     
   <script src="js/script.js"></script>
   <script src="js/register.js"></script>
+  
   <?php
     if ($allertText!==null && $allertType !==null){
       ?>
