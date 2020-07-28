@@ -108,17 +108,6 @@ if ( (isset($_POST[password]) && (isset($_POST[username])) && ($_POST[password] 
       </div>
 </div>
 
-  <!-- ADD HERE YOUR HTML CODE -->    
-  <div class="login-page">
-        <div class="form">
-        <form class="login-form" method="post" action="signin.php">
-          <input class="username" type="text" name="username" placeholder="username" />
-          <input class="password" type="password" name="password" placeholder="password" />
-          <button type="submit">login</button>
-        </form> 
-      </div>  
-</div>
-
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
