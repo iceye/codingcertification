@@ -6,36 +6,41 @@ include("lib/functions.php");
 
 $topic= $_GET['topicID'];
 $page= $_GET['page'];
-
-//echo "$topic and $page";
-//echo "\n";
+$pageSize = 10;
 
 // Use topicID to get messages
 
-$topicarray=getTopicById($topic);
+$topicArray=getTopicById($topic);
 
-$title = $topicarray[title];
-$owner = $topicarray[userId];
+$title = $topicArray[title];
+$owner = $topicArray[userId];
 $user = getUserById($owner);
 $ownerName = $user[username];
-$createdDate = $topicarray[created_at];
+$createdDate = $topicArray[created_at];
 
-//Get messages  for topic  QUESTION Pulling data from this array
-  $pageSize = 10;
-  // TODO convert 'last' into a page number (10)
-  $pageNumber = 2; 
-  //$topicMessages = getMessagesByTopicIdPaginated($topic, $pageSize ,$pageNumber); 
-  $allMessagesForTopic = getMessagesByTopicId($topic);
-  //print_r ($allMessagesForTopic);
-  print_r ($allMessagesForTopic);
-  //print_r($topicMessages); 
-  echo count($allMessagesForTopic[0]);
+// determine number of pages
+$pageNumberDefault = 1;
+$paginatedTopic = getMessagesByTopicIdPaginated($topic, $pageSize ,$pageNumberDefault);
+$numberOfPages = $paginatedTopic[totalpages];
+
+//determine current page
+if ($page == 'last'){
+  $currentPage = $numberOfPages;
+} elseif ($page == 'first'){
+  $currentPage = 1;
+}else{
+  $currentPage = $page;
+}
+
+//Get messages  for topic  QUESTION Pulling data from this array  Double check if this should  remain static
+   
+  $paginatedTopicMessageArray = getMessagesByTopicIdPaginated($topic, $pageSize ,$currentPage); 
+  $paginatedTopicMessages = $paginatedTopicMessageArray[data];
+  $totalPages = $paginatedTopicMessageArray[totalpages];
   
-
-  //TODO Order messages by created date
-
-
-
+//Establish next and previous page
+$previousPage = $currentPage-1;
+$nextPage = $currentPage+1;
 
 // BUSINESS LOGIC CODE END
 ?>
@@ -77,11 +82,41 @@ $createdDate = $topicarray[created_at];
  <!---TODO: Make Submit button functional --->
       </form>
   </div>
-  <div id="message">
-    <p>Some Message Body</p>
-    <h4>Message Author</h4>
-    <h4>Message Created Date</h4>
-  </div> 
+  <?php
+    foreach($paginatedTopicMessages as $message){
+        $messageAuthorId = $message[userId];
+        $messageAuthor=getUserById($messageAuthorId);
+        $messageAuthorName = $messageAuthor[username];
+        ?> 
+          <div id='message'>
+            <p><?php echo $message[body]?></p>
+            <h4> by <?php echo $messageAuthorName?></h4>
+            <h4> Created: <?php echo $message[created_at]?></h4>
+          </div>
+        <?php        
+    }
+        ?>
+        <div id='messagePage'>
+            
+        <?php if($page != first && $page != 1){ 
+          ?>   
+          <a href= 'topic.php?topicID=<?php echo $topic?>&page=<?php echo $previousPage ?>'> &lt;</a>
+          <?php
+        }
+          ?>
+        <?php
+        for($i = 1; $i <= $numberOfPages; $i++){
+          ?>
+          <a href= 'topic.php?topicID=<?php echo $topic?>&page='<?php echo $i ?>><?php echo $i ?></a>
+          <?php
+        }
+        if($page != last && $currentPage != $totalPages){ 
+        ?>   
+        <a href= 'topic.php?topicID=<?php echo $topic?>&page=<?php echo $nextPage ?>'> &gt;</a>
+        <?php
+          }
+    ?>
+      </div>
 
   <!-- JS SCRIPT INCLUSION -->
   <script
