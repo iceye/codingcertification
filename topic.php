@@ -32,6 +32,22 @@ if ($page == 'last'){
   $currentPage = $page;
 }
 
+ //Get UserId from Session
+ session_start(); 
+ $addMessageUserId = $_SESSION[userId];
+ //TEMP Value for userId
+ $addMessageUserId = 1;
+
+//Add posted Message to Topic
+$newMessage=$_POST['message'];
+ if($newMessage != '' || $newMessage != NUll){
+    $page = "last";
+    $currentPage = $numberOfPages;
+    $addMessageStatus= saveNewMessage($newMessage, $topic, $addMessageUserId);
+    if ($addMessageStatus !=-1 && $addMessageStatus !=''&& $addMessageStatus != NULL){
+    }
+  }
+
 //Get messages  for topic  QUESTION Pulling data from this array  Double check if this should  remain static
 
   $paginatedTopicMessageArray = getMessagesByTopicIdPaginated($topic, $pageSize ,$currentPage);
@@ -75,11 +91,10 @@ $nextPage = $currentPage+1;
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
-      <form action="/action_page.php">
+      <form method="post" action="topic.php?topicID=<?php echo $topic ?>&page=last">
         <label for="message">Post a message:</label><br>
-        <textarea rows="5" cols="20" name="review">message field</textarea> <br>
+        <textarea rows="5" cols="20" name="message">message field</textarea> <br>
         <input type="submit" value="Submit">
- <!---TODO: Make Submit button functional --->
       </form>
   </div>
   <?php
