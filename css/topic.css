@@ -72,9 +72,10 @@ h3 {
 textarea {
     width: 430px;
     height: 100px;
+    resize: none;
 }
 
 #backToDiscussion {
     text-align: center;
     padding-right: 20%;
-}
+} 

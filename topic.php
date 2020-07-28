@@ -69,22 +69,14 @@ $nextPage = $currentPage+1;
   <!-- CSS INCLUSION -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/topic.css">
-  <style>
-   div {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    }
-  </style>
+
 </head>
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->
-  <h1>TOPIC - HELLO WORLD</h1>
-
-  <a href="index.php">Back To Discussions</a>
-
+  <div id="backToDiscussion">
+    <a href="index.php">Back To Discussions</a>
+  </div>
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
     <p> Author <?php echo "$ownerName $createdDate" ?></p>
@@ -92,9 +84,9 @@ $nextPage = $currentPage+1;
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
       <form method="post" action="topic.php?topicID=<?php echo $topic ?>&page=last">
-        <label for="message">Post a message:</label><br>
-        <textarea rows="5" cols="20" name="message">message field</textarea> <br>
-        <input type="submit" value="Submit" id="messageSubmitButton">
+        <label for="message">Message</label><br>
+        <textarea rows="5" cols="20" name="message"></textarea> <br>
+        <input type="submit" value="Add Message" id="submit">
       </form>
   </div>
   <?php
