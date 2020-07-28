@@ -12,16 +12,16 @@ $pageSize = 10;
 
 $topicArray=getTopicById($topic);
 
-$title = $topicArray[title];
-$owner = $topicArray[userId];
+$title = $topicArray['title'];
+$owner = $topicArray['userId'];
 $user = getUserById($owner);
-$ownerName = $user[username];
-$createdDate = $topicArray[created_at];
+$ownerName = $user['username'];
+$createdDate = $topicArray['created_at'];
 
 // determine number of pages
 $pageNumberDefault = 1;
 $paginatedTopic = getMessagesByTopicIdPaginated($topic, $pageSize ,$pageNumberDefault);
-$numberOfPages = $paginatedTopic[totalpages];
+$numberOfPages = $paginatedTopic['totalpages'];
 
 //determine current page
 if ($page == 'last'){
@@ -35,8 +35,8 @@ if ($page == 'last'){
 //Get messages  for topic  QUESTION Pulling data from this array  Double check if this should  remain static
    
   $paginatedTopicMessageArray = getMessagesByTopicIdPaginated($topic, $pageSize ,$currentPage); 
-  $paginatedTopicMessages = $paginatedTopicMessageArray[data];
-  $totalPages = $paginatedTopicMessageArray[totalpages];
+  $paginatedTopicMessages = $paginatedTopicMessageArray['data'];
+  $totalPages = $paginatedTopicMessageArray['totalpages'];
   
 //Establish next and previous page
 $previousPage = $currentPage-1;
@@ -51,7 +51,7 @@ $nextPage = $currentPage+1;
   <title>D-Board</title>
   <meta name="description" content="The D-Board project">
   <!-- CSS INCLUSION -->    
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/topic.css">
   <style>
    div {
@@ -84,39 +84,39 @@ $nextPage = $currentPage+1;
   </div>
   <?php
     foreach($paginatedTopicMessages as $message){
-        $messageAuthorId = $message[userId];
+        $messageAuthorId = $message['userId'];
         $messageAuthor=getUserById($messageAuthorId);
-        $messageAuthorName = $messageAuthor[username];
+        $messageAuthorName = $messageAuthor['username'];
         ?> 
           <div id='message'>
-            <p><?php echo $message[body]?></p>
+            <p><?php echo $message['body']?></p>
             <h4> by <?php echo $messageAuthorName?></h4>
-            <h4> Created: <?php echo $message[created_at]?></h4>
+            <h4> Created: <?php echo $message['created_at']?></h4>
           </div>
-        <?php        
+    <?php        
     }
-        ?>
-        <div id='messagePage'>
-            
-        <?php if($page != first && $page != 1){ 
-          ?>   
-          <a href= 'topic.php?topicID=<?php echo $topic?>&page=<?php echo $previousPage ?>'> &lt;</a>
-          <?php
-        }
-          ?>
-        <?php
-        for($i = 1; $i <= $numberOfPages; $i++){
-          ?>
-          <a href= 'topic.php?topicID=<?php echo $topic?>&page='<?php echo $i ?>><?php echo $i ?></a>
-          <?php
-        }
-        if($page != last && $currentPage != $totalPages){ 
-        ?>   
-        <a href= 'topic.php?topicID=<?php echo $topic?>&page=<?php echo $nextPage ?>'> &gt;</a>
-        <?php
-          }
     ?>
-      </div>
+  <div id='messagePage'>
+    <?php 
+      if($page != 'first' && $page != 1){ 
+      ?>   
+        <a href='topic.php?topicID=<?php echo $topic?>&page=<?php echo $previousPage ?>'> &lt;</a>
+        <?php
+      }
+      ?>
+      <?php
+      for($i = 1; $i <= $numberOfPages; $i++){
+      ?>
+        <a href='topic.php?topicID=<?php echo $topic?>&page='<?php echo $i ?>><?php echo $i ?></a>
+      <?php
+      }
+      if($page != 'last' && $currentPage != $totalPages){ 
+      ?>   
+        <a href='topic.php?topicID=<?php echo $topic?>&page=<?php echo $nextPage ?>'> &gt;</a>
+      <?php
+      }
+    ?>
+  </div>
 
   <!-- JS SCRIPT INCLUSION -->
   <script
