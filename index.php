@@ -21,7 +21,6 @@ session_start();
 }*/
 
 
-
 /*BUSINESS LOGIC CODE END*/
 ?><!doctype html>
 <html lang="en">
@@ -36,11 +35,11 @@ session_start();
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->    
-  <h1>HOME PAGE - HELLO WORLD</h1>
   <?php 
   if($_SESSION[authenticated] == true){
   ?>
        <div id="welcome">
+          <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
           <p>Welcome <?php echo $_SESSION[username];?> </p>
       </div> 
   <?php
