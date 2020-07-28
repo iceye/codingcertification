@@ -60,7 +60,9 @@ $nextPage = $currentPage+1;
   <!-- ADD HERE YOUR HTML CODE -->
   <h1>TOPIC - HELLO WORLD</h1>
 
+  <div id="backToDiscussion">
   <a href="index.php">Back To Discussions</a>
+  </div>
 
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
@@ -73,6 +75,8 @@ $nextPage = $currentPage+1;
       <form action="/action_page.php">
         <label for="message">Post a message:</label><br>
         <textarea rows="5" cols="20" name="review">message field</textarea> <br>
+        <label for="message">Message</label><br>
+        <textarea rows="5" cols="20" name="review"></textarea> <br>
         <input type="submit" value="Add Message" id="submit">
  <!---TODO: Make Submit button functional --->
       </form>
