@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
-</style>
-</head>
-<body>
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-</body>
-</html>
+/* import font family */
+@import url(https://fonts.googleapis.com/css family=Roboto:300);
 
-div {
-    width: 300px;
-    border: 15px solid green;
-   padding: 50px;
-   margin: 20px;
-   }
+#topic{
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 500px;
+    margin: 0 auto 100px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    display: flex;    
 
+}
