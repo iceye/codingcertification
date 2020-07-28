@@ -107,7 +107,7 @@ $nextPage = $currentPage+1;
         <?php
         for($i = 1; $i <= $numberOfPages; $i++){
           ?>
-          <a href= 'topic.php?topicID=<?php echo $topic?>&page='<?php echo $i ?>><?php echo $i ?></a>
+          <a href= 'topic.php?topicID=<?php echo $topic?>&page=<?php echo $i ?>'><?php echo $i ?></a>
           <?php
         }
         if($page != last && $currentPage != $totalPages){ 
