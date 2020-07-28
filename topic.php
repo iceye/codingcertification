@@ -69,39 +69,32 @@ $nextPage = $currentPage+1;
   <!-- CSS INCLUSION -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/topic.css">
-
+  <style>
+   div {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    }
+  </style>
 </head>
 
 <body>
   <!-- ADD HERE YOUR HTML CODE -->
   <h1>TOPIC - HELLO WORLD</h1>
 
-  <div id="backToDiscussion">
   <a href="index.php">Back To Discussions</a>
-  </div>
 
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
-    <br/>
     <p> Author <?php echo "$ownerName $createdDate" ?></p>
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
-<<<<<<< HEAD
       <form method="post" action="topic.php?topicID=<?php echo $topic ?>&page=last">
         <label for="message">Post a message:</label><br>
         <textarea rows="5" cols="20" name="message">message field</textarea> <br>
-        <input type="submit" value="Submit">
-=======
-    <br/>
-      <form action="/action_page.php">
-        <label for="message">Post a message:</label><br>
-        <textarea rows="5" cols="20" name="review">message field</textarea> <br>
-        <label for="message">Message</label><br>
-        <textarea rows="5" cols="20" name="review"></textarea> <br>
-        <input type="submit" value="Add Message" id="submit">
- <!---TODO: Make Submit button functional --->
->>>>>>> 6ae14ee79140201579bac4df1cf7459a212734a7
+        <input type="submit" value="Submit" id="messageSubmitButton">
       </form>
   </div>
   <?php
