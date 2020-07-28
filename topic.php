@@ -53,14 +53,7 @@ $nextPage = $currentPage+1;
   <!-- CSS INCLUSION -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/topic.css">
-  <style>
-   div {
-    width: 300px;
-    border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    }
-  </style>
+
 </head>
 
 <body>
@@ -71,14 +64,16 @@ $nextPage = $currentPage+1;
 
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
+    <br/>
     <p> Author <?php echo "$ownerName $createdDate" ?></p>
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
+    <br/>
       <form action="/action_page.php">
         <label for="message">Post a message:</label><br>
         <textarea rows="5" cols="20" name="review">message field</textarea> <br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Add Message" id="submit">
  <!---TODO: Make Submit button functional --->
       </form>
   </div>
