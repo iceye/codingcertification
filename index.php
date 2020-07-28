@@ -27,8 +27,8 @@ session_start();
  
   <?php 
 
-//$_SESSION[authenticated] = false; The authentication works onyl if the password is not encrypted
-//$_SESSION[username] = 'Stefano';
+$_SESSION[authenticated] = true; 
+$_SESSION[username] = 'Stefano';
 
   if($_SESSION[authenticated] == true){
   ?>
@@ -72,7 +72,7 @@ $allertType = null;
     <formTitle>Create a discussion</formTitle>
     <label>Title</label>
       <input type="text" name="topicTitle" id="topicTitle" required>
-      <br><button type="submit" class="btn" name="new_topic">Add Discussion</button>
+      <br><button type="submit" id="formNewTopicButton" class="formNewTopicBtnDisabled" name="new_topic">Add Discussion</button>
       </div>
     </form>
   </div>
@@ -139,7 +139,8 @@ $allertType = null;
   }
   ?>
 
- 
+<input type="text" id="message"/>
+<input type="button" class="btn" value="submit"></input>
 
 <!-- JS SCRIPT INCLUSION -->
 <script
@@ -151,6 +152,26 @@ $allertType = null;
   crossorigin="anonymous"></script>     
   <script src="js/script.js"></script>
   <script src="js/index.js"></script>
+
+<script type="text/javascript">
+// jquery to change button class in the form to create new topics  
+  $(document).ready(function(){
+    $('#formNewTopicButton').prop("disabled", "true");
+    $('#formNewTopicButton').attr("class", "formNewTopicBtnDisabled"); 
+    
+    $('#topicTitle').keyup(function(){
+        if($(this).val().length !=0){
+          $('#formNewTopicButton').removeAttr("disabled");
+          $('#formNewTopicButton').attr("class", "formNewTopicBtnEnabled"); 
+        }
+        else
+        {
+          $('#formNewTopicButton').prop("disabled", "true");
+          $('#formNewTopicButton').attr("class", "formNewTopicBtnDisabled");
+        }
+    })
+  });
+</script>
 
   <?php
     if ($allertText!==null && $allertType !==null){
