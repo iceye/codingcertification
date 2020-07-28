@@ -24,6 +24,8 @@ THEN I'm redirected to the _SIGNIN_ page /signin.php
 AND I see the _SIGNIN TITLE_ label  
 AND I see the _USERNAME_ field  
 AND I see the _PASSWORD_ field  
+
+
 (_OPTIONAL_)  
 AND I see _SIGNIN BUTTON_ disabled   
 AND  
@@ -31,11 +33,7 @@ WHEN I fill _USERNAME_ and _PASSWORD_ fields with some values
 THEN I see the _SIGNIN BUTTON_ enabled  
 (_OPTIONAL_)  
 
-
-
-
 ##### I sign in link DONE
-
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  
@@ -48,10 +46,8 @@ THEN I'm redirected to /index.php
 AND I see 'Hi {username}' label on the _TOP RIGHT_ corner  
 
 
- 
 
 ##### I sign fail  DONE
-
 GIVEN I'm a guest user  
 AND I previoulsy registered a new user with username 'myuser' and 'pass123!' as password  
 AND I visit _D-BOARD URL_ /index.php  
