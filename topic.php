@@ -17,6 +17,8 @@ $owner = $topicArray['userId'];
 $user = getUserById($owner);
 $ownerName = $user['username'];
 $createdDate = $topicArray['created_at'];
+$datecreate= date_create($createdDate);
+$formatcreatedDate= date_format($datecreate, "l, F d, Y");
 
 // determine number of pages
 $pageNumberDefault = 1;
@@ -45,6 +47,7 @@ $newMessage=$_POST['message'];
     $currentPage = $numberOfPages;
     $addMessageStatus= saveNewMessage($newMessage, $topic, $addMessageUserId);
     if ($addMessageStatus !=-1 && $addMessageStatus !=''&& $addMessageStatus != NULL){
+      echo "Your message has been shared in this topic.";
     }
   }
 
@@ -79,7 +82,7 @@ $nextPage = $currentPage+1;
   </div>
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
-    <p> Author <?php echo "$ownerName $createdDate" ?></p>
+    <p> Author <?php echo "$ownerName  $formatcreatedDate" ?></p>
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
@@ -94,11 +97,14 @@ $nextPage = $currentPage+1;
         $messageAuthorId = $message['userId'];
         $messageAuthor=getUserById($messageAuthorId);
         $messageAuthorName = $messageAuthor['username'];
+        $messagecreatedate= $message['created_at'];
+        $messagedatecreate= date_create($messagecreatedate);
+        $messageformateddate= date_format($messagedatecreate, "l, F d, Y" );
         ?>
           <div id='message'>
             <p><?php echo $message['body']?></p>
             <h4> by <?php echo $messageAuthorName?></h4>
-            <h4> Created: <?php echo $message['created_at']?></h4>
+            <h4> Created: <?php echo $messageformateddate?></h4>
           </div>
     <?php
     }
