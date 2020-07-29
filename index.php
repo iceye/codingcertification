@@ -48,8 +48,7 @@ session_start();
   if($_SESSION[authenticated] == true){
   ?>
        <div id="welcome">
-          <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
-          <p>Welcome <?php echo $_SESSION[username];?> </p>
+          <h3 id="h3Welcome">Welcome <?php echo ($_SESSION[username]);?> </h3>
       </div> 
   <?php
 

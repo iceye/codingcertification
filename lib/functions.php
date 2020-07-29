@@ -283,7 +283,7 @@ function getMessagesByTopicIdPaginated($topicId,$pageSize,$pageNumber){
         return NULL;
     }
 
-    $paginatedMessagesQuery = "SELECT * FROM message WHERE topicId = '".addslashes($topicId)."' ORDER BY created_at ASC LIMIT ".$startItemCount.",".$pageSize.";";
+    $paginatedMessagesQuery = "SELECT * FROM message WHERE topicId = '".addslashes($topicId)."' ORDER BY created_at DESC LIMIT ".$startItemCount.",".$pageSize.";";
     $result = mysqli_query($dblink, $paginatedMessagesQuery);
     if ($result!==FALSE && mysqli_num_rows($result) > 0) {
       $returnedMessagesData = [];

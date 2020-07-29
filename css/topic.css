@@ -1,22 +1,101 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {background-color: powderblue;}
-h1   {color: blue;}
-p    {color: red;}
-</style>
-</head>
-<body>
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-</body>
-</html>
+/* import font family */
+@import url(https://fonts.googleapis.com/css family=Roboto:300);
 
-div {
-    width: 300px;
-    border: 15px solid green;
-   padding: 50px;
-   margin: 20px;
-   }
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(235, 229, 229);
+}
 
+#topic{
+    position: relative;
+    background: #FFFFFF;
+    max-width: 56em;
+    margin: 0 auto 100px;
+    margin: 9px auto 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    
+}
+#messagePage{
+    position: relative;
+    max-width: 56em;
+    margin: 0 auto 100px;
+    margin: 9px auto 15px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+#addMessage{
+
+    position: relative;
+    background: #FFFFFF;
+    max-width: 900px;
+    margin: 0 auto 100px;
+    margin: 0 auto 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    padding-bottom: 75px;
+
+
+
+}
+#message{
+    position: relative;
+    background: #FFFFFF;
+    max-width: 900px;
+    margin: 0 auto 100px;
+    margin: 0 auto 15px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+    
+
+}
+/* use to style the Add Message button*/
+#submit {
+    display:block;
+    float: left;
+    outline: 0;
+    background: rgb(131, 211, 178);
+    width: 15%;
+    border: 0;
+    border-radius: 10px;
+    padding: 20px 1px;
+    color: black;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+h3 {
+    margin-top: 1px;
+}
+
+textarea {
+    width: 40em;
+    height: 100px;
+    resize: none;
+    margin-bottom: 1em;
+}
+
+#backToDiscussion {
+    max-width: 56em;
+    text-align: center;
+    padding-right: 65%;
+} 
+
+a{
+    text-decoration: none;
+    padding: .5em;
+}
+a:hover {
+         text-decoration: underline overline;
+         background-color: rgb(131, 211, 178);
+         border-radius: 10px;
+        }

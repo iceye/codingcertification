@@ -6,8 +6,8 @@
   }
   body {
     font-size: 90%;
-    font-family: 'Open Sans', sans-serif;
-    background: #EEEEEE;
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(235, 229, 229);
 /*    display: flex; */
   }
 
@@ -107,15 +107,18 @@
     padding: 20px;
     margin-top: 100px;
   }
-
-
-
 /* used to style the welcome User name message on Index page*/
 #welcome{ 
     float:right;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid black;
+    width: auto;
+    padding: 0px 10px;
     border-radius: 10px;
-    
+    background: rgb(131, 211, 178);
+    text-align: center;
+   
 }
+
+#h3Welcome{
+    font-weight: 100;
+}
+
