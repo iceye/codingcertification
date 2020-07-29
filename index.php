@@ -139,9 +139,6 @@ $allertType = null;
   }
   ?>
 
-<input type="text" id="message"/>
-<input type="button" class="btn" value="submit"></input>
-
 <!-- JS SCRIPT INCLUSION -->
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
