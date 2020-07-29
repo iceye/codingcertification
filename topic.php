@@ -43,8 +43,8 @@ if ($page == 'last'){
 //Add posted Message to Topic
 $newMessage=$_POST['message'];
  if($newMessage != '' || $newMessage != NUll){
-    $page = "last";
-    $currentPage = $numberOfPages;
+    $page = "first";
+    $currentPage = 1;
     $addMessageStatus= saveNewMessage($newMessage, $topic, $addMessageUserId);
     if ($addMessageStatus !=-1 && $addMessageStatus !=''&& $addMessageStatus != NULL){
       echo "Your message has been shared in this topic.";
@@ -86,7 +86,7 @@ $nextPage = $currentPage+1;
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
-      <form method="post" action="topic.php?topicID=<?php echo $topic ?>&page=last">
+      <form method="post" action="topic.php?topicID=<?php echo $topic ?>&page=first">
         <label for="message">Message</label><br>
         <textarea rows="5" cols="20" name="message"></textarea> <br>
         <input type="submit" value="Add Message" id="submit">
