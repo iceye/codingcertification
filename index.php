@@ -27,13 +27,14 @@ session_start();
  
   <?php 
 
-$_SESSION[authenticated] = true; 
-$_SESSION[username] = 'Stefano';
+// Following lines are to force autentication for testing
+// $_SESSION[authenticated] = true; 
+// $_SESSION[username] = 'Stefano';
 
   if($_SESSION[authenticated] == true){
   ?>
        <div id="welcome">
-          <h1>WELCOME (strtoupper($_SESSION[username])) </h1>
+          <h1>WELCOME <?php echo (strtoupper($_SESSION[username]));?> </h1>
       </div> 
   <?php
 
@@ -79,10 +80,10 @@ $allertType = null;
 
 
 <!-- Table with paginated topics -->
-
-<table>
-  
 <?php
+
+    echo '<table>';
+
     /* Getting the amount of pages to display */
 
     if ($pageNumber == 0 or Null){
@@ -99,15 +100,14 @@ $allertType = null;
         $idFromArray = $item['userId'];
         $arrayUserFromId = getUserById($idFromArray);
 
-       ?>
-       <tr>
-       <td> <a href=/topic.php?topicID=<?php $item['topicId']?>><?php $item['title']?></a>  </br>Created by: <?php'.$arrayUserFromId['username'].' ?> Created at: <?php $item['created_at'] ?></td>
-       </tr>
+       echo '<tr>
+       <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+       </tr>';
 
        
   }
-  
-</table>
+  echo '</table>';
+?>
 
 <!-- Create clickable links to pages -->
 <form method="post" id="pager" class="numeriDiPagina">
@@ -116,11 +116,10 @@ $allertType = null;
     for ($i = 1; $i <= $numberOfPages; $i++) {
 
       if ($i == $pageNumber) {
-        ?> <button class="pageBtn" disabled> <?php $i ?> </button>
+        echo '<button class="pageBtn" disabled>'.$i.'</button>';
       }
-      <?php
       else{
-        ?> <button type="submit" class="pageBtnNo" name="pageNumberBtn" value="<?php $i. ?>"><?php $i ?> </button>
+        echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
       }
   }
 
@@ -140,9 +139,6 @@ $allertType = null;
   <?php
   }
   ?>
-
-<input type="text" id="message"/>
-<input type="button" class="btn" value="submit"></input>
 
 <!-- JS SCRIPT INCLUSION -->
 <script
