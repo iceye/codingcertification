@@ -27,8 +27,9 @@ session_start();
  
   <?php 
 
-$_SESSION[authenticated] = true; 
-$_SESSION[username] = 'Stefano';
+// Following lines are to force autentication for testing
+// $_SESSION[authenticated] = true; 
+// $_SESSION[username] = 'Stefano';
 
   if($_SESSION[authenticated] == true){
   ?>
