@@ -1,3 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 90%;
+    font-family: 'Open Sans', sans-serif;
+    background: #EEEEEE;
+/*    display: flex; */
+  }
+
+  .header {
+    width: 50%;
+    margin: 50px auto 0px;
+    color: #333333;
+    text-align: left;
+    border-radius: 10px 10px 0px 0px;
+
+  }
+
+  form, .content {
+    width: 50%;
+    margin: 20px 0px 0px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  form, .numeriDiPagina{
+    margin: 5px auto 20px auto;
+    background: transparent;
+  }
+
+  .pageBtn {
+    font-size: small;
+    font-weight: bold;
+    color: #494949;
+    background: #9CFFB5;
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .pageBtnNo {
+    font-size: small;
+    font-weight: bold;
+    color: #494949;
+    background: transparent;
+    border: none;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+
+  .input-group {
+    padding: 20px;
+  }
+  
+  .input-group formTitle {
+    font-size: large;
+    text-align: left;
+  }
+  
+  .input-group label {
+    margin-top: 10px;
+    display: block;
+    text-align: left;
+
+  }
+  .input-group input {
+    height: 30px;
+    width: 60%;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #E6E8ED;
+  }
+  .btn {
+    height: 42px;
+    margin: 20px 0px 5px 0px;
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #494949;
+    background: #9CFFB5;
+    border: none;
+    border-radius: 7px;
+  }
+
+  table {
+    width:50%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    align-self: center;
+  }
+  td {
+    border-bottom: 1px solid #F4F4F4;
+    padding: 20px;
+    margin-top: 100px;
+  }
+
+
+
 /* used to style the welcome User name message on Index page*/
 #welcome{ 
     float:right;

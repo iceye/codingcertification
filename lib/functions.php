@@ -63,6 +63,7 @@ function saveNewUser($username, $password){
   */
 function getUserByUsernameAndPassword($username, $password){
     global $dblink;
+    $password = md5($password);
     $searchForUserQuery = "SELECT * FROM user WHERE username = '".addslashes($username)."' AND password = '".addslashes($password)."';";
     $result = mysqli_query($dblink, $searchForUserQuery);
     if ($result!==FALSE && mysqli_num_rows($result) > 0) {
@@ -326,4 +327,17 @@ function saveNewMessage($body, $topicId, $userId){
 
 /* ADD HERE YOUR OWN FUNCTIONS */
 
+/**
+  * Check the typed Password in the Sign in page with the Password stored in the user DB
+  *
+  * @param string $password password typed in the sign in form
+  * @param string $username username typed in the sign in form
+  *            
+  * @return boolean True if the typed password is the same of the password stored in the DB, False if it's not the same
+  */
+  function EncryptPassword($password){
+ 
+    $password = md5($password);
+    return $password;
+}
 ?>

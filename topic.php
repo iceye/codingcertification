@@ -126,7 +126,7 @@ $nextPage = $currentPage+1;
   <script
   src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"
   crossorigin="anonymous"></script>     
-  <script src="js/scripts.js"></script>
+  <script src="js/script.js"></script>
   <script src="js/topic.js"></script>    
 </body>
 </html>
