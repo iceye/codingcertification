@@ -6,10 +6,10 @@ body {
     background-color: rgb(235, 229, 229);
 }
 
-#topic,  #messagePage{
+#topic{
     position: relative;
     background: #FFFFFF;
-    max-width: 900px;
+    max-width: 56em;
     margin: 0 auto 100px;
     margin: 9px auto 15px;
     padding: 20px;
@@ -17,6 +17,15 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     border-radius: 10px;
     
+}
+#messagePage{
+    position: relative;
+    max-width: 56em;
+    margin: 0 auto 100px;
+    margin: 9px auto 15px;
+    padding: 20px;
+    text-align: left;
+    border-radius: 10px;
 }
 
 #addMessage{
@@ -54,11 +63,10 @@ body {
     float: left;
     outline: 0;
     background: rgb(131, 211, 178);
-    width: 17%;
-    width: 25%;
+    width: 15%;
     border: 0;
     border-radius: 10px;
-    padding: 15px;
+    padding: 20px 1px;
     color: black;
     font-size: 14px;
     cursor: pointer;
@@ -70,12 +78,24 @@ h3 {
 }
 
 textarea {
-    width: 430px;
+    width: 40em;
     height: 100px;
     resize: none;
+    margin-bottom: 1em;
 }
 
 #backToDiscussion {
+    max-width: 56em;
     text-align: center;
-    padding-right: 20%;
+    padding-right: 65%;
 } 
+
+a{
+    text-decoration: none;
+    padding: .5em;
+}
+a:hover {
+         text-decoration: underline overline;
+         background-color: rgb(131, 211, 178);
+         border-radius: 10px;
+        }

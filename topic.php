@@ -7,6 +7,7 @@ include("lib/functions.php");
 $topic= $_GET['topicID'];
 $page= $_GET['page'];
 $pageSize = 10;
+$successMessage=false;
 
 // Use topicID to get messages
 
@@ -47,7 +48,7 @@ $newMessage=$_POST['message'];
     $currentPage = 1;
     $addMessageStatus= saveNewMessage($newMessage, $topic, $addMessageUserId);
     if ($addMessageStatus !=-1 && $addMessageStatus !=''&& $addMessageStatus != NULL){
-      echo "Your message has been shared in this topic.";
+      $successMessage = true;
     }
   }
 
@@ -82,7 +83,7 @@ $nextPage = $currentPage+1;
   </div>
   <div id="topic">
     <h3> <?php echo "$title" ?></h3>
-    <p> Author <?php echo "$ownerName  $formatcreatedDate" ?></p>
+    <p> <?php echo $ownerName."&nbsp;&nbsp;&nbsp;".$formatcreatedDate ?></p>
   </div>
   <div id="addMessage">
     <h3>Add Topic to Discussion</h3>
@@ -103,8 +104,7 @@ $nextPage = $currentPage+1;
         ?>
           <div id='message'>
             <p><?php echo $message['body']?></p>
-            <h4> by <?php echo $messageAuthorName?></h4>
-            <h4> Created: <?php echo $messageformateddate?></h4>
+            <h4><?php echo $messageAuthorName."&nbsp;&nbsp;&nbsp;".$messageformateddate?></h4>
           </div>
     <?php
     }
@@ -131,6 +131,15 @@ $nextPage = $currentPage+1;
       ?>
   </div>
 
+  <script>
+    <?php
+      if($successMessage == true){
+        ?> alert("You message has been added");
+        <?php
+      }
+      
+        ?>
+  </script>
   <!-- JS SCRIPT INCLUSION -->
   <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"

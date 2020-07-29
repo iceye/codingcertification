@@ -1,9 +1,22 @@
+/* import font family */
+@import url(https://fonts.googleapis.com/css family=Roboto:300);
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(235, 229, 229);
+}
+
 /* used to style the welcome User name message on Index page*/
 #welcome{ 
     float:right;
-    width: 300px;
-    padding: 10px;
-    border: 1px solid black;
+    width: auto;
+    padding: 0px 10px;
     border-radius: 10px;
-    
+    background: rgb(131, 211, 178);
+    text-align: center;
+   
+}
+
+#h3Welcome{
+    font-weight: 100;
 }
