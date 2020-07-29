@@ -1,1 +1,69 @@
 /*Place here your global CSS styles*/
+div {
+   }
+
+.formNewTopicBtnEnabled {
+   height: 42px;
+   margin: 20px 0px 5px 0px;
+   padding: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   border: none;
+   border-radius: 7px;
+   color: #494949;
+   background: #9CFFB5;
+   border: none;
+   padding-right: 10px;
+   padding-left: 10px;
+   cursor: pointer;
+   }
+
+   .formNewTopicBtnDisabled {
+   height: 42px;
+   margin: 20px 0px 5px 0px;
+   padding: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   border: none;
+   border-radius: 7px;
+   color: gray;
+   background: lightgray;
+   border: none;
+   padding-right: 10px;
+   padding-left: 10px;
+   }
+
+   .btnLogin {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #494949;
+      background-color: #9CFFB5;
+      border-radius: 7px;
+      outline: none;
+    }
+
+    .btnRegister {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #494949;
+      background-color: #9CFFB5;
+      border-radius: 7px;
+      outline: none;
+    }
+    
+    .loginContainer {
+      margin-top: 10%;
+      width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      background: white;
+      border-radius: 10px 10px 10px 10px;
+      padding: 10px;
+}
+

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    font-size: 90%;
+    font-family: 'Open Sans', sans-serif;
+    background: #EEEEEE;
+    display: flex;
+  }
+
+  .centeringDiv{
+    height: 100%;
+    width: 100%;
+    display: flex;
+  }
+
+/* .header {
+    width: 45%;
+    margin: 50px auto 0px;
+    color: #333333;
+    background: white;
+    text-align: left;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+  }
+*/
+
+  form, .content {
+    width: 450px;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .input-group {
+    margin: 20px 0px 10px 0px;
+  }
+  .input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+  }
+  .input-group input {
+    height: 30px;
+    width: 93%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #E6E8ED;
+  }
+  .btn {
+    padding: 10px;
+    height: 42px;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #494949;
+    background: #9CFFB5;
+    border: none;
+    border-radius: 7px;
+  }
+  .error {
+    width: 92%; 
+    margin: 0px auto; 
+    padding: 10px; 
+    border: 1px solid #a94442; 
+    color: #a94442; 
+    background: #f2dede; 
+    border-radius: 5px; 
+    text-align: left;
+  }
+  .success {
+    color: #3c763d; 
+    background: #dff0d8; 
+    border: 1px solid #3c763d;
+    margin-bottom: 20px;
+  }
