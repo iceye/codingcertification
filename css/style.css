@@ -1,3 +1,34 @@
 /*Place here your global CSS styles*/
 div {
    }
+
+.formNewTopicBtnEnabled {
+   height: 42px;
+   margin: 20px 0px 5px 0px;
+   padding: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   border: none;
+   border-radius: 7px;
+   color: #494949;
+   background: #9CFFB5;
+   border: none;
+   padding-right: 10px;
+   padding-left: 10px;
+   cursor: pointer;
+   }
+
+   .formNewTopicBtnDisabled {
+   height: 42px;
+   margin: 20px 0px 5px 0px;
+   padding: 5px;
+   font-size: 15px;
+   font-weight: bold;
+   border: none;
+   border-radius: 7px;
+   color: gray;
+   background: lightgray;
+   border: none;
+   padding-right: 10px;
+   padding-left: 10px;
+   }
