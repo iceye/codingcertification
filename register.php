@@ -64,7 +64,7 @@ else {
         <input type="password" name="password_2" id="psw_2" required>
       </div>
       <div class="input-group">
-        <button type="submit" class="btn" name="reg_user">Sign up</button>
+      <button type="submit" id="formNewUserButton" class="formNewTopicBtnDisabled" name="new_topic">Sign up</button>
       </div>
       <p>
         Already registered? <a href="signin.php">Sign in</a>
@@ -81,6 +81,26 @@ else {
   crossorigin="anonymous"></script>     
   <script src="js/script.js"></script>
   <script src="js/register.js"></script>
+
+  <script type="text/javascript">
+// jquery to change button class in the form to create new topics  
+  $(document).ready(function(){
+    $('#formNewUserButton').prop("disabled", "true");
+    $('#formNewUserButton').attr("class", "formNewTopicBtnDisabled"); 
+    
+    $('#username').keyup(function(){
+        if($(this).val().length !=0){
+          $('#formNewUserButton').removeAttr("disabled");
+          $('#formNewUserButton').attr("class", "formNewTopicBtnEnabled"); 
+        }
+        else
+        {
+          $('#formNewUserButton').prop("disabled", "true");
+          $('#formNewUserButton').attr("class", "formNewTopicBtnDisabled");
+        }
+    })
+  });
+</script>
   
   <?php
     if ($allertText!==null && $allertType !==null){
