@@ -24,6 +24,8 @@ else {
                                }
         else {$allertText="User created";
               $allertType="success";
+            #  sleep(3);
+            #  header("location: signin.php");
              }
     }  
 }
