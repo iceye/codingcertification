@@ -160,7 +160,7 @@ function getTopicsPaginated($pageSize,$pageNumber){
         return NULL;
     }
 
-    $paginatedTopicQuery = "SELECT * FROM topic LIMIT ".$startItemCount.",".$pageSize.";";
+    $paginatedTopicQuery = "SELECT * FROM topic ORDER BY created_at DESC LIMIT ".$startItemCount.",".$pageSize.";";
     $result = mysqli_query($dblink, $paginatedTopicQuery);
     if ($result!==FALSE && mysqli_num_rows($result) > 0) {
       $returnedTopicsData = [];
