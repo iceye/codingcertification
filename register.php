@@ -23,7 +23,7 @@ else {
           $allertText="The username typed already exists";
           $allertType="info";
                                }
-        else {$allertText="User created";
+        else {$allertText="User created, you will be redirected in 3 second";
               $allertType="success";
               $success=true;
              }
