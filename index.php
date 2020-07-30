@@ -114,7 +114,7 @@ $allertType = null;
         $topicDate = $item['created_at'];
 
        echo '<tr>
-       <td><a href=./topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'<span style="margin-right: 100px"></span>Created at: '.(new \DateTime($topicDate))->format('l, F d, Y').'</td>
+       <td><a href=./topic.php?topicID='.$item['topicId'].'&page=first>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'<span style="margin-right: 100px"></span>Created at: '.(new \DateTime($topicDate))->format('l, F d, Y').'</td>
        </tr>';    
   }
 ?>
