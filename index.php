@@ -94,9 +94,8 @@ $allertType = null;
 
 
 <!-- Table with paginated topics -->
+<table>
 <?php
-
-    echo '<table>';
 
     /* Getting the amount of pages to display */
 
@@ -116,16 +115,13 @@ $allertType = null;
 
        echo '<tr>
        <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
-       </tr>';
-
-       
+       </tr>';    
   }
-  echo '</table>';
 ?>
+</table>
 
 <!-- Create clickable links to pages -->
 <form method="post" id="pager" class="numeriDiPagina">
-
 <?php
     if ($pageNumber == 1) {
       echo '<button class="pageNavBtnDisabled" disabled><</button>';
