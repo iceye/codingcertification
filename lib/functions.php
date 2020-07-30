@@ -166,9 +166,10 @@ function getTopicsPaginated($pageSize,$pageNumber){
       $returnedTopicsData = [];
       $returnedTopicsData['data'] =  mysqli_fetch_all($result,MYSQLI_ASSOC);
       $returnedTopicsData['currentpage'] = $pageNumber;
-      $returnedTopicsData['totalpages'] = $totalTopics<$pageSize?1:floor($totalTopics/$pageSize)+1;
-      
-      // Free unused result set
+      $returnedTopicsData['totalpages'] = $totalTopics<$pageSize?1:ceil($totalTopics/$pageSize);
+// Original line: $returnedTopicsData['totalpages'] = $totalTopics<$pageSize?1:floor($totalTopics/$pageSize)+1;     
+ 
+// Free unused result set
       mysqli_free_result($result);
             
       return $returnedTopicsData;
