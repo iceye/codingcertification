@@ -111,9 +111,11 @@ $allertType = null;
       foreach ($arrayTopicsPaginated['data'] as $item) {
         $idFromArray = $item['userId'];
         $arrayUserFromId = getUserById($idFromArray);
-
+        $topicDate = $item['created_at'];
+        $topicDateFormatted = date('d-m-Y', $topicDate);
+       
        echo '<tr>
-       <td><a href=./topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+       <td><a href=./topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'<span style="margin-right: 100px"></span>Created at: '.$topicDate.'</td>
        </tr>';    
   }
 ?>
