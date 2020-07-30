@@ -8,6 +8,7 @@ include("lib/functions.php");
   $allertText = null; //Variable used to store the text to insert in alert box 
   $allertType = null; //Variable to choose alert style -> see allert.css
                       // Available allert options: warning/error/info/success
+  $success = false;   //Variable used to store login access success
 
 if ($password_1 != $password_2) {
     $allertText="password doesn't match";
@@ -24,8 +25,7 @@ else {
                                }
         else {$allertText="User created";
               $allertType="success";
-            #  sleep(3);
-            #  header("location: signin.php");
+              $success=true;
              }
     }  
 }
@@ -109,6 +109,17 @@ else {
     allert("<?= $allertText ?>", {
               type: "<?= $allertType ?>",
             });
+  </script>
+  <?php
+    }
+  ?>
+<?php
+    if ($success!==false){
+      ?>
+  <script>
+ setTimeout(function () {
+       window.location.href = "signin.php";
+    }, 3000);   
   </script>
   <?php
     }
