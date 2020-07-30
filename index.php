@@ -127,15 +127,31 @@ $allertType = null;
 <form method="post" id="pager" class="numeriDiPagina">
 
 <?php
+    if ($pageNumber == 1) {
+      echo '<button class="pageNavBtnDisabled" disabled><</button>';
+    }
+    else{
+      $prevPage = $pageNumber - 1;
+      echo '<button class="pageNavBtnEnabled" name="pageNumberBtn" value="'.$prevPage.'"><</button>';
+    }
+    
     for ($i = 1; $i <= $numberOfPages; $i++) {
-
+      
       if ($i == $pageNumber) {
         echo '<button class="pageBtn" disabled>'.$i.'</button>';
       }
       else{
         echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
-      }
-  }
+      }  
+    }
+
+    if ($pageNumber == $numberOfPages) {
+      echo '<button class="pageNavBtnDisabled" disabled>></button>';
+    }
+    else{
+      $nextPage = $pageNumber + 1;
+      echo '<button class="pageNavBtnEnabled" name="pageNumberBtn" value="'.$nextPage.'">></button>';
+    }
 
 ?>
 </form>

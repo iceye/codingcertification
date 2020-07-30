@@ -67,3 +67,28 @@ div {
       padding: 10px;
 }
 
+.pageNavBtnEnabled {
+  font-size: small;
+  font-weight: bold;
+  color: #494949;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.pageNavBtnDisabled {
+  font-size: small;
+  font-weight: bold;
+  color: lightgrey;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
