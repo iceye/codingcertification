@@ -52,16 +52,15 @@ session_start();
       </div> 
   <?php
 
-$title = $_POST['topicTitle'];
 $pageNumber = $_POST['pageNumberBtn'];
 
-$userId = '1';
 $allertText = null;
 $allertType = null;
 
 /*Creation of New Topics*/
   $title = $_POST['topicTitle'];
-  $userId = '1';
+  $userId = $_SESSION[userId];
+
   /* $userID to be changed with the ID of the current logged user */
   if ($title != "") {
     $checktopic = saveNewTopic($title, $userId);
