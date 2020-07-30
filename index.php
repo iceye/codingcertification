@@ -52,16 +52,15 @@ session_start();
       </div> 
   <?php
 
-$title = $_POST['topicTitle'];
 $pageNumber = $_POST['pageNumberBtn'];
 
-$userId = '1';
 $allertText = null;
 $allertType = null;
 
 /*Creation of New Topics*/
   $title = $_POST['topicTitle'];
-  $userId = '1';
+  $userId = $_SESSION[userId];
+
   /* $userID to be changed with the ID of the current logged user */
   if ($title != "") {
     $checktopic = saveNewTopic($title, $userId);
@@ -94,9 +93,8 @@ $allertType = null;
 
 
 <!-- Table with paginated topics -->
+<table>
 <?php
-
-    echo '<table>';
 
     /* Getting the amount of pages to display */
 
@@ -113,29 +111,43 @@ $allertType = null;
       foreach ($arrayTopicsPaginated['data'] as $item) {
         $idFromArray = $item['userId'];
         $arrayUserFromId = getUserById($idFromArray);
+        $topicDate = $item['created_at'];
 
        echo '<tr>
-       <td><a href=/topic.php?topicID='.$item['topicId'].'&page=first>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
-       </tr>';
-
-       
+       <td><a href=./topic.php?topicID='.$item['topicId'].'&page=first>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'<span style="margin-right: 100px"></span>Created at: '.(new \DateTime($topicDate))->format('l, F d, Y').'</td>
+       </tr>';    
   }
-  echo '</table>';
 ?>
+</table>
 
 <!-- Create clickable links to pages -->
 <form method="post" id="pager" class="numeriDiPagina">
-
 <?php
+    if ($pageNumber == 1) {
+      echo '<button class="pageNavBtnDisabled" disabled><</button>';
+    }
+    else{
+      $prevPage = $pageNumber - 1;
+      echo '<button class="pageNavBtnEnabled" name="pageNumberBtn" value="'.$prevPage.'"><</button>';
+    }
+    
     for ($i = 1; $i <= $numberOfPages; $i++) {
-
+      
       if ($i == $pageNumber) {
         echo '<button class="pageBtn" disabled>'.$i.'</button>';
       }
       else{
         echo '<button type="submit" class="pageBtnNo" name="pageNumberBtn" value="'.$i.'">'.$i.'</button>';
-      }
-  }
+      }  
+    }
+
+    if ($pageNumber == $numberOfPages) {
+      echo '<button class="pageNavBtnDisabled" disabled>></button>';
+    }
+    else{
+      $nextPage = $pageNumber + 1;
+      echo '<button class="pageNavBtnEnabled" name="pageNumberBtn" value="'.$nextPage.'">></button>';
+    }
 
 ?>
 </form>
@@ -147,7 +159,7 @@ $allertType = null;
   <center>
     <div class="loginContainer"><p>Welcome to Coding Certification Academy</p>
       <a href="signin.php" class="btnLogin"> SIGN-IN </a> 
-      <a href="register.php" class="btnRegister">register</a>
+      <a href="register.php" class="btnRegister">REGISTER</a>
     </div>
     </center>
   <?php
