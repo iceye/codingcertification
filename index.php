@@ -159,7 +159,7 @@ $allertType = null;
   <center>
     <div class="loginContainer"><p>Welcome to Coding Certification Academy</p>
       <a href="signin.php" class="btnLogin"> SIGN-IN </a> 
-      <a href="register.php" class="btnRegister">register</a>
+      <a href="register.php" class="btnRegister">REGISTER</a>
     </div>
     </center>
   <?php
