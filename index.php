@@ -113,7 +113,7 @@ $allertType = null;
         $arrayUserFromId = getUserById($idFromArray);
 
        echo '<tr>
-       <td><a href=/topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
+       <td><a href=./topic.php?topicID='.$item['topicId'].'>'.$item['title'].'</a></br>Created by: '.$arrayUserFromId['username'].'Created at: '.$item['created_at'].'</td>
        </tr>';    
   }
 ?>
